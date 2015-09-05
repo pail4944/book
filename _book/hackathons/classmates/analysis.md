@@ -1,0 +1,70 @@
+# Analysis
+
+{% import './data.html' as data %}
+
+After completing the warmup exercises, your task is to do four more slightly
+more challenges analyses.
+
+## How many students like sushi as their favorite food?
+
+{% lodash %}
+
+var students = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, "sushi")
+})
+return _.size(students)
+{% endlodash %}
+
+The answer is {{result}}.
+
+## Who are the students liking Python the most?
+
+{% lodash %}
+var students = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, "python")
+})
+return _.pluck(students, "user.login")
+{% endlodash %}
+
+Their names are {{result}}.
+
+## Are there more Javascript lovers or Java lovers?
+
+{% lodash %}
+var studentjs = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, "javascript")
+})
+var studentj = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, "java")
+})
+if (studentjs.size > studentj.size){
+	return "Javascript";
+}
+else{
+	return "Java";
+}
+{% endlodash %}
+
+The answer is {{result}}.
+
+## Who like the same food as `kjblakemore`?
+
+{% lodash %}
+var text = (_.find(data.comments,{user:{login: "kjblakemore"}})).body
+var lines = text.split('\n')
+var line = _.last(lines)
+var sections = line.split(': ')
+var food =  _.last(sections)
+var students = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	food = food.toLowerCase()	
+	return _.includes(string, food)
+})
+return _.pluck(students, "user.login")
+{% endlodash %}
+
+Their names are {{result}}.
