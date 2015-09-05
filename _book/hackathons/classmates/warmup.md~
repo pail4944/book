@@ -42,10 +42,9 @@ The code to retrieve the data about the favorite food is (hint: use [split()](ht
 {% lodash %}
 var text = _.first(data.comments).body
 console.log(text)
-var lines = text.split('\n')
-var line = _.last(lines)
-var sections = line.split(': ')
-return _.last(sections)
+var line = text.split('\n')
+var section = line.split(': ')
+return _.last(section)
 {% endlodash %}
 
 So, {{name}}'s favorite food is {{result}}.

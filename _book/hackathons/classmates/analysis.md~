@@ -54,7 +54,7 @@ The answer is {{result}}.
 ## Who like the same food as `kjblakemore`?
 
 {% lodash %}
-var text = (_.find(data.comments,{user:{login: "kjblakemore"}})).body
+var text = (_.find(data.comments,{user:{login: "willzfarmer"}})).body
 var lines = text.split('\n')
 var line = _.last(lines)
 var sections = line.split(': ')

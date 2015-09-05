@@ -38,7 +38,7 @@ var student = _.find(data.comments, function(comment){
 	var string = comment.body.toLowerCase()
 	return _.includes(string, "mexican")
 })
-return student.user.login
+return user.login.student
 {% endlodash %}
 The name is {{result}}.
 
