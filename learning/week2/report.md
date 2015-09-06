@@ -6,7 +6,7 @@ There are {{ data.comments.length }} students who gave a self-introduction. As a
 class, we brainstormed and came up with a long list of further questions we can
 ask based on this data. Our team chose to tackle on the following:
 
-# How many Applied Math Majors are there?
+# How many Applied Math majors are there?
 
 {% lodash %}
 var students = _.filter(data.comments, function(comment){
@@ -17,7 +17,7 @@ return _.size(students)
 {% endlodash %}
 The answer is {{result}}.
 
-# How many people submitted after August 24th? (The first day of class
+# How many people submitted after August 24th? (The first day of class)
 
 {% lodash %}
 var students = _.filter(data.comments, function(comment){

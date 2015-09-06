@@ -17,32 +17,31 @@ including the controls, widgets ...etc.
 
 # How big the deal Tableau really is?
 
-(write your answer based on the statistics you can find online)
+Tableau has been growing by about 75% every year and reached over $412 million in 2014. They server over 26,000 customers that include huge companies such as Audi and Coca-Cola.
 
-# (Question 1)
+Source: http://diginomica.com/2015/02/05/tableau-ramps-revenues-75-adds-2600-customers/#.VezQcrNVK1E
 
-![screenshot](screenshot.png)
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+# How many Applied Math majors are there?
 
-# (Question 2)
+![screenshot](majors.jpg)
 
-![screenshot](screenshot.png)
+Look at the right axis label to see the majors and then the bars represent how many people said they were majors in that department. Keep in mind that this double counts double majors. For example, an Applied Math and a Computer Science double major would be counted in both the first and second bar.
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+# How many people submitted after August 24th? (The first day of class)
 
-# (Question 3)
+![screenshot](date.png)
 
-![screenshot](screenshot.png)
+A pie chart that highlights the amount of posters that made their posts after the 24th in red. The number of people in each category is also labeled.
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+# Who was the first person to say their favorite food was Mexican?
 
-# (Question 4)
+![screenshot](time.png)
 
-![screenshot](screenshot.png)
+A Gantt Bar graph that shows all the people who commented Mexican food (includes people who said a specific mexican food) and relates a bar to a time that they posted that comment. The data is sorted in a descending order that relates posting time, so the person on top is the first commenter. The first and second commenters were only seperated by one minute, so it can be hard to tell the difference between the two.
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+# How many people submitted before noon?
+
+![screenshot](noon.png)
+
+Another pie chart that shows the amount of people who submitted their comments before noon. The sections that related to those who submitted before noon is highlighted in green.
