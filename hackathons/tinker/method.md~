@@ -6,10 +6,10 @@ for making the decision.
 
 From the class discussion, we wrote down five specific questions that are particularly interesting.
 
-* ((question))
-* ((question))
-* ((question))
-* ((question))
-* ((question))
+* Which languages are most popular?
+* Which repositories have the most forks?
+* Which repositories have the most new watchers in a yearly quarter?
+* Which repositories have the most stars?
+* Which languages have the most total pushes?
 
 From the above list, my team chose a question, worked on it, and created a report on the next page.
