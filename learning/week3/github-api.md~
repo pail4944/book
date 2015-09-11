@@ -86,13 +86,8 @@ return 'something'
 {% endlodash %}
 
 ### What are the fork counts of our class's repositories?
-{% githubapi %}
-https://api.github.com/repos/bigdatahci2015/book
-{% endgithubapi %}
 
-{% lodash %}
-return _.pluck(data, 'forks')
-{% endlodash %}
+(answer)
 
 ### How many public repositories does the user `doubleshow` have?
 

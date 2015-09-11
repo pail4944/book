@@ -79,7 +79,7 @@ var result = _.filter(data, function(d){
 	return d.name;
 	}
 })
- return _.pluck(result, 'name') 
+ return result 
 {% endlodashexercise %}
 
 
