@@ -127,8 +127,8 @@ What are all the first names?
 
 {% solution %}
 var result = _.map(data, function(d){
-	d.name.split("\\S+");
-	return d.name[0];
+	d.name = d.name.split(" ")
+	return d.name[0]
 })
 return result
 
@@ -156,10 +156,13 @@ What are the first names of Smith?
 
 {% solution %}
 var result = _.map(data, function(d){
-	d.name.split("\\S+")
+	d.name = d.name.split(" ")
 	if (d.name[1] == "Smith"){
 	return d.name[0];
 	}
+})
+return _.filter(result, function(d){
+	return (d != undefined)
 })
 {% endlodashexercise %}
 
@@ -206,10 +209,8 @@ How many women?
 
 {% solution %}
 
-var result = _.pluck(data, function(d){
-	if (d.gender == 'f'){
-	return d.name
-	}
+var result = _.filter(data, function(d){
+	return (d.gender == 'f')
 })
  return result.length
 {% endlodashexercise %}
@@ -236,13 +237,13 @@ How many men whose last name is Smith?
 
 {% solution %}
 
-var result = 'not done'
-return result
-
+var result = _.filter(data, function(d){
+	if (d.gender == 'm'){
+	return _.includes(d.name, "Smith")
+	}
+})
+return result.length
 {% endlodashexercise %}
-
-
-
 
 
 
@@ -261,8 +262,7 @@ true
 
 {% solution %}
 
-var result = 'not done'
-return result
+
 
 {% endlodashexercise %}
 
@@ -288,8 +288,8 @@ What is Peter Pan's gender?
 
 {% solution %}
 
-var result = 'not done'
-return result
+var result = _.find(data, {name: "Peter Pan"})
+return result.gender
 
 {% endlodashexercise %}
 
@@ -312,10 +312,9 @@ What is the oldest age?
 54
 
 {% solution %}
-
-var result = 'not done'
+var result = _.pluck(data, "age")
+result = _.max(result)
 return result
-
 {% endlodashexercise %}
 
 
@@ -340,7 +339,9 @@ true
 {% solution %}
 
 // use _.all
-var result = 'not done'
+var result = _.all(data, function(d){
+	return (d.age < 60)
+})
 return result
 
 {% endlodashexercise %}
@@ -349,7 +350,7 @@ return result
 
 
 {% lodashexercise %}
-
+n
 {% title %}
 
 Is it true someone is not an adult (younger than 18)?
@@ -364,10 +365,10 @@ true
 
 {% solution %}
 
-// use _.some
-var result = 'not done'
+var result = _.some(data, function(d){
+	return (d.age < 18)
+})
 return result
-
 {% endlodashexercise %}
 
 
@@ -392,8 +393,10 @@ How many people whose favorites include food?
 
 {% solution %}
 
-var result = 'not done'
-return result
+var result = _.filter(data, function(d){
+	return _.includes(d.favorites, "food")
+})
+return result.length
 
 {% endlodashexercise %}
 
@@ -421,8 +424,12 @@ Who are over 40 and love travel?
 
 {% solution %}
 
-var result = 'not done'
-return result
+var result = _.filter(data, function(d){
+	if (d.age > 40){	
+	return _.includes(d.favorites, "travel")
+	}
+})
+return _.pluck(result, 'name')
 
 {% endlodashexercise %}
 
@@ -439,7 +446,7 @@ Who is the oldest person loving food?
 
 [{name: 'John Smith', age: 54, favorites: ['food', 'movies']},
  {name: 'Mary Smith', age: 42, favorites: ['food', 'travel']},
- {name: 'Peter Pan', age: 15, favorites: ['minecraft', 'pokemo']},
+ {name: 'Peter Pan', age: 15, favorites: ['minecraft', 'pokemon']},
  {name: 'Joe Johnson', age: 46, favorites: ['travel', 'movies']},
  {name: 'Ben Smith', age: 35, favorites: ['craft', 'food']}]
 
@@ -449,8 +456,14 @@ Who is the oldest person loving food?
 
 {% solution %}
 
-var result = 'not done'
-return result
+var result = _.filter(data, function(d){
+	return _.includes(d.favorites, "food")
+})
+var check = _.pluck(result, "age")
+result = _.find(data, function(d){
+	return (d.age == _.max(check))
+})
+return result.name
 
 {% endlodashexercise %}
 
@@ -483,10 +496,10 @@ What are all the unique favorites?
 
 {% solution %}
 
-// hint: use _.pluck, _.uniq, _.flatten in some order
+var result = _.pluck(data, "favorites")
+result = _.flatten(result)
+return _.uniq(result)
 
-var result = 'not done'
-return result
 
 {% endlodashexercise %}
 
@@ -516,7 +529,14 @@ What are all the unique last names?
 
 {% solution %}
 
-var result = 'not done'
-return result
+var result = _.map(data, function(d){
+	d.name = d.name.split(" ")
+	return d.name[1];
+})
+result = _.filter(result, function(d){
+	return (d != undefined)
+})
+result = _.flatten(result)
+return _.uniq(result)
 
 {% endlodashexercise %}

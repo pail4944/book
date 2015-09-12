@@ -63,43 +63,52 @@ https://api.github.com/repos/bigdatahci2015/forum/issues
 return _.size(data)
 {% endlodash %}
 
-{{ result }}
+There are {{ result }} issues
+
 ### What are the titles of these issues?
 
 {% lodash %}
 return _.pluck(data, 'title')
 {% endlodash %}
 
-{{ result }}
+The titles are {{ result }}
 
 ### How many repository have been created to date for our class?
 
 Our class's Github organization is [bigdatahci2015](https://github.com/bigdatahci2015/).
 
 {% githubapi %}
-// enter the URL to access the Github API to get the data for this question
+https://api.github.com/users/bigdatahci2015/repos
 {% endgithubapi %}
 
 {% lodash %}
-// add lodash code to process the data and generate the answer
-return 'something'
+return _.size(data)
 {% endlodash %}
 
 ### What are the fork counts of our class's repositories?
 
-(answer)
+{% lodash %}
+return _.pluck(data, 'forks')
+{% endlodash %}
+
+There are {{ result }} forks for each of the class's repositories
 
 ### How many public repositories does the user `doubleshow` have?
 
 {% githubapi %}
-// enter the URL to access the Github API to get the data for this question
+https://api.github.com/users/doubleshow
 {% endgithubapi %}
 
 {% lodash %}
-// add lodash code to process the data and generate the answer
-return 'something'
+return data.public_repos
 {% endlodash %}
+
+There are {{ result }} repositories
 
 ### How many public gists does the user `doubleshow` have?
 
-(answer)
+{% lodash %}
+return data.public_gists
+{% endlodash %}
+
+There are {{ result }} gists.
