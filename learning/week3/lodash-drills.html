@@ -48,7 +48,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.4.2" data-basepath="../.." data-revision="Fri Sep 11 2015 19:47:52 GMT-0600 (MDT)">
+    <div class="book" data-level="1.4.2" data-basepath="../.." data-revision="Sun Sep 13 2015 19:41:26 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -668,7 +668,7 @@ programmer but also will pave the way for you to learn MapReduce and MongoDB.</p
 <span class="keyword">return</span> _.filter(result, <span class="keyword">function</span>(d){
     <span class="keyword">return</span> (d != undefined)
 })</pre></div><p></p>
-<p></p><h2>Change the format to lastname, firstname</h2><div class="lodashexercise">   <div class="result"></div><div class="section-title">Data</div><pre>[{name: &apos;John Smith&apos;}, {name: &apos;Mary Kay&apos;}, {name: &apos;Peter Pan&apos;}]</pre><div class="output"><div class="left"><div class="section-title">Expected Output<pre>[
+<p></p><h2>Change the format to lastname, firstname</h2><div class="lodashexercise">   <div class="result"></div><div class="ok">Done</div><div class="section-title">Data</div><pre>[{name: &apos;John Smith&apos;}, {name: &apos;Mary Kay&apos;}, {name: &apos;Peter Pan&apos;}]</pre><div class="output"><div class="left"><div class="section-title">Expected Output<pre>[
   {
     &quot;name&quot;: &quot;Smith, John&quot;
   },
@@ -678,7 +678,23 @@ programmer but also will pave the way for you to learn MapReduce and MongoDB.</p
   {
     &quot;name&quot;: &quot;Pan, Peter&quot;
   }
-]</pre></div></div><div class="right"><div class="section-title">Actual Output<pre>&quot;not done&quot;</pre></div></div></div><div class="section-title">Solution</div><pre><span class="keyword">var</span> result = <span class="string">&apos;not done&apos;</span>
+]</pre></div></div><div class="right"><div class="section-title">Actual Output<pre>[
+  {
+    &quot;name&quot;: &quot;Smith, John&quot;
+  },
+  {
+    &quot;name&quot;: &quot;Kay, Mary&quot;
+  },
+  {
+    &quot;name&quot;: &quot;Pan, Peter&quot;
+  }
+]</pre></div></div></div><div class="section-title">Solution</div><pre><span class="keyword">var</span> result = _.filter(data, <span class="keyword">function</span>(d){
+    d.name= d.name.split(<span class="string">&quot; &quot;</span>)
+    <span class="keyword">var</span> one = d.name[<span class="number">0</span>]
+    <span class="keyword">var</span> two = d.name[<span class="number">1</span>]
+    d.name = two + <span class="string">&quot;, &quot;</span> + one
+    <span class="keyword">return</span> d.name
+})
 <span class="keyword">return</span> result</pre></div><p></p>
 <p></p><h2>How many women?</h2><div class="lodashexercise">   <div class="result"></div><div class="ok">Done</div><div class="section-title">Data</div><pre>[{name: &apos;John Smith&apos;, gender: &apos;m&apos;}, {name: &apos;Mary Smith&apos;, gender: &apos;f&apos;}, {name: &apos;Peter Pan&apos;, gender: &apos;m&apos;}, {name: &apos;Ben Smith&apos;, gender: &apos;m&apos;}]</pre><div class="output"><div class="left"><div class="section-title">Expected Output<pre>1</pre></div></div><div class="right"><div class="section-title">Actual Output<pre>1</pre></div></div></div><div class="section-title">Solution</div><pre><span class="keyword">var</span> result = _.filter(data, <span class="keyword">function</span>(d){
     <span class="keyword">return</span> (d.gender == <span class="string">&apos;f&apos;</span>)
@@ -690,7 +706,18 @@ programmer but also will pave the way for you to learn MapReduce and MongoDB.</p
     }
 })
 <span class="keyword">return</span> result.length</pre></div><p></p>
-<p></p><h2></h2><div class="lodashexercise">   <div class="result"></div><div class="section-title">Data</div><pre>[{name: &apos;John Smith&apos;, gender: &apos;m&apos;}, {name: &apos;Mary Smith&apos;, gender: &apos;f&apos;}, {name: &apos;Peter Pan&apos;, gender: &apos;m&apos;}, {name: &apos;Ben Smith&apos;, gender: &apos;m&apos;}]</pre><div class="output"><div class="left"><div class="section-title">Expected Output<pre>true</pre></div></div><div class="right"><div class="section-title">Actual Output<pre></pre></div></div></div><div class="section-title">Solution</div><pre></pre></div><p></p>
+<p></p><h2>Are there more men than women?</h2><div class="lodashexercise">   <div class="result"></div><div class="ok">Done</div><div class="section-title">Data</div><pre>[{name: &apos;John Smith&apos;, gender: &apos;m&apos;}, {name: &apos;Mary Smith&apos;, gender: &apos;f&apos;}, {name: &apos;Peter Pan&apos;, gender: &apos;m&apos;}, {name: &apos;Ben Smith&apos;, gender: &apos;m&apos;}]</pre><div class="output"><div class="left"><div class="section-title">Expected Output<pre>true</pre></div></div><div class="right"><div class="section-title">Actual Output<pre>true</pre></div></div></div><div class="section-title">Solution</div><pre><span class="keyword">var</span> m = _.filter(data, <span class="keyword">function</span>(d){
+    <span class="keyword">return</span> _.includes(d.gender, <span class="string">&apos;m&apos;</span>)
+})
+<span class="keyword">var</span> f = _.filter(data, <span class="keyword">function</span>(d){
+    <span class="keyword">return</span> _.includes(d.gender, <span class="string">&apos;f&apos;</span>)
+})
+<span class="keyword">if</span> (m.length &gt; f.length){
+    <span class="keyword">return</span> <span class="keyword">true</span>
+}
+<span class="keyword">else</span>{
+    <span class="keyword">return</span> <span class="keyword">false</span>
+}</pre></div><p></p>
 <p></p><h2>What is Peter Pan&apos;s gender?</h2><div class="lodashexercise">   <div class="result"></div><div class="ok">Done</div><div class="section-title">Data</div><pre>[{name: &apos;John Smith&apos;, gender: &apos;m&apos;}, {name: &apos;Mary Smith&apos;, gender: &apos;f&apos;}, {name: &apos;Peter Pan&apos;, gender: &apos;m&apos;}, {name: &apos;Ben Smith&apos;, gender: &apos;m&apos;}]</pre><div class="output"><div class="left"><div class="section-title">Expected Output<pre>&quot;m&quot;</pre></div></div><div class="right"><div class="section-title">Actual Output<pre>&quot;m&quot;</pre></div></div></div><div class="section-title">Solution</div><pre><span class="keyword">var</span> result = _.find(data, {name: <span class="string">&quot;Peter Pan&quot;</span>})
 <span class="keyword">return</span> result.gender</pre></div><p></p>
 <p></p><h2>What is the oldest age?</h2><div class="lodashexercise">   <div class="result"></div><div class="ok">Done</div><div class="section-title">Data</div><pre>[{name: &apos;John Smith&apos;, age: 54}, {name: &apos;Mary Smith&apos;, age: 42}, {name: &apos;Peter Pan&apos;, age: 15}, {name: &apos;Ben Smith&apos;, age: 35}]</pre><div class="output"><div class="left"><div class="section-title">Expected Output<pre>54</pre></div></div><div class="right"><div class="section-title">Actual Output<pre>54</pre></div></div></div><div class="section-title">Solution</div><pre><span class="keyword">var</span> result = _.pluck(data, <span class="string">&quot;age&quot;</span>)
