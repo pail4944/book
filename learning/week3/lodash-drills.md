@@ -187,7 +187,13 @@ Change the format to lastname, firstname
 [{name: 'Smith, John'}, {name: 'Kay, Mary'}, {name: 'Pan, Peter'}]
 
 {% solution %}
-var result = 'not done'
+var result = _.filter(data, function(d){
+	d.name= d.name.split(" ")
+	var one = d.name[0]
+	var two = d.name[1]
+	d.name = two + ", " + one
+	return d.name
+})
 return result
 {% endlodashexercise %}
 
@@ -250,6 +256,8 @@ return result.length
 
 {% lodashexercise %}
 
+{% title %}
+
 Are there more men than women?
 
 {% data %}
@@ -262,8 +270,18 @@ true
 
 {% solution %}
 
-
-
+var m = _.filter(data, function(d){
+	return _.includes(d.gender, 'm')
+})
+var f = _.filter(data, function(d){
+	return _.includes(d.gender, 'f')
+})
+if (m.length > f.length){
+	return true
+}
+else{
+	return false
+}
 {% endlodashexercise %}
 
 
