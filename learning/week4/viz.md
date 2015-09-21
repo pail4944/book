@@ -19,37 +19,27 @@ how to transform this JSON file into a format that can be fed into Tableau. As
 a junior and senior, you are expected to be able to look around the Internet
 to problem solve.
 
-# (Question 1)
+# Which classes have the highest hours of work per week? (16+) (Parker Illig)
 
-![screenshot](screenshot.png)
+![screenshot](hours.png)
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+For this question I made a graph that shows all the departments and classes inside those departments that have students put 16+ hours of work per week into. Each red circle represents a section of a particular class that has responded 16+.
 
-# (Question 2)
+# What department should I take classes in if I want to boost my GPA? (Caleb Hsu)
 
-![screenshot](screenshot.png)
+![screenshot](avgA.png)
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+This tree graph represents all the departments and their respective average giveouts of A grades. Rectangles that are more saturated and larger have greater GPA's, so the maximum GPA in this graph is represented in the upper left corner, by Museum.
 
-# (Question 3)
+# Which classes(with specific professors) damaged the most students (sort by:D + F rating)? (Denis Kazakov)
 
-![screenshot](screenshot.png)
+![screenshot](avgD-F.png)
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+This bar chart represents each class and each respective instructor of that class' average giveout of D's and F's. The first bar is Average D, then second is Average F, then third is the average of the two combined. The graph is sorted by the average of D+F.
 
-# (Question 4)
+# What department has the lowest average GPA? (Nicole Woytarowicz)
 
-![screenshot](screenshot.png)
+![screenshot](avggpa2.png)
 
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)
+This simple bar chart shows the average GPA over each department and put the smallest one at the top. This answer shows something different from the report due to the fact that Tableau eliminated the null statements in the data and the average GPA changed due to that.
 
-# (Question 5)
-
-![screenshot](screenshot.png)
-
-(write your explanation for the reader as to where to look at this chart in order
-    to see the answer)    
