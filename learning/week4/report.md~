@@ -15,7 +15,7 @@ will be able to independently reproduce these solutions when asked to do so.
 Coming up, we will incorporate variations of these questions into a future hackathon
  and you are expected to be capable of reproducing and adapting your solutions.
 
-# Which classes have the highest hours of work per week? (Parker Illig)
+# Which classes have the highest hours of work per week? (16+) (Parker Illig)
 
 {% lodash %}
 
@@ -26,8 +26,8 @@ var result = _.groupBy(data, function(d){
 	return combine
 })
 var classes = _.mapValues(result, function(d){
-	var wk = _.first(_.pluck(d, 'Workload.Hrs_Wk'))
-	return _.includes(wk, '13-15')
+	var wk = _.pluck(d, 'Workload.Hrs_Wk')
+	return _.includes(wk, '16+')
 })
 return _.pick(classes, function(x){
 	return x==true
@@ -61,7 +61,7 @@ return highest[0]
 
 I should take classes in the {{result}} department if I want to boost my GPA.
 
-# Which classes(with specific professors) damaged the most students (sort by:D + DF + F + WDRAW rating)? (Denis Kazakov)
+# Which classes(with specific professors) damaged the most students (sort by:D + DF + F rating)? (Denis Kazakov)
 
 {% lodash %}
 var clean = _.filter(data, function(n){
@@ -69,7 +69,7 @@ var clean = _.filter(data, function(n){
 })
 
 var map = _.map(clean, function(n){
-  return {course: n.CourseTitle, ratio: n.PCT.C + n.PCT.D + n.PCT.F, name: _.pluck(n.Instructors, "name")}
+  return {course: n.CourseTitle, ratio: n.PCT.D + n.PCT.DF + n.PCT.F, name: _.pluck(n.Instructors, "name")}
 })
 
 return _.sortBy(map, function(n){
@@ -108,5 +108,8 @@ return {Department: (_.invert(departments))[worst], Average_GPA: worst}
 # (Question 5) by (Name)
 
 {% lodash %}
-return "[answer]"
+
+
 {% endlodash %}
+
+
