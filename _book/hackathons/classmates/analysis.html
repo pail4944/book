@@ -29,6 +29,14 @@
         
     
         
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.css">
+        
+    
+        
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
@@ -48,7 +56,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="2.2.3" data-basepath="../.." data-revision="Sun Sep 20 2015 22:18:36 GMT-0600 (MDT)">
+    <div class="book" data-level="2.2.3" data-basepath="../.." data-revision="Fri Sep 25 2015 18:14:32 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -379,6 +387,87 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="learning/week5/index.html">
+            
+                
+                    <a href="../../learning/week5/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Week 5
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="learning/week5/birdstrike-report.html">
+            
+                
+                    <a href="../../learning/week5/birdstrike-report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.1.</b>
+                        
+                        Birdstrike Report
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="learning/week5/viz-steps.html">
+            
+                
+                    <a href="../../learning/week5/viz-steps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.2.</b>
+                        
+                        Viz Intro
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="learning/week5/viz-drills.html">
+            
+                
+                    <a href="../../learning/week5/viz-drills.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.3.</b>
+                        
+                        Viz Drills
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="learning/week5/viz-pokemon.html">
+            
+                
+                    <a href="../../learning/week5/viz-pokemon.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.4.</b>
+                        
+                        Viz Pokemon
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -583,6 +672,42 @@
             
         </li>
     
+        <li class="chapter " data-level="2.4" data-path="hackathons/birdstrikes/index.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Birdstrikes
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="hackathons/birdstrikes/report.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        Report
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -697,56 +822,47 @@
 <p>After completing the warmup exercises, your task is to do four more slightly
 more challenges analyses.</p>
 <h2 id="how-many-students-like-sushi-as-their-favorite-food">How many students like sushi as their favorite food?</h2>
-<p><pre>
-
-<span class="keyword">var</span> students = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.body.toString().toLowerCase()
-    <span class="keyword">return</span> _.includes(string, <span class="string">&quot;sushi&quot;</span>)
+<p><pre><code>var students = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, &quot;sushi&quot;)
 })
-<span class="keyword">return</span> _.size(students)
-</pre></p>
+return _.size(students)</code></pre></p>
 <p>The answer is 5.</p>
 <h2 id="who-are-the-students-liking-python-the-most">Who are the students liking Python the most?</h2>
-<p><pre>
-<span class="keyword">var</span> students = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.body.toString().toLowerCase()
-    <span class="keyword">return</span> _.includes(string, <span class="string">&quot;python&quot;</span>)
+<p><pre><code>var students = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, &quot;python&quot;)
 })
-<span class="keyword">return</span> _.pluck(students, <span class="string">&quot;user.login&quot;</span>)
-</pre></p>
+return _.pluck(students, &quot;user.login&quot;)</code></pre></p>
 <p>Their names are willzfarmer,hswitte,ZachLamb,zhya215,jocr1627,94kazakov,calebhsu,kjblakemore,SankethSukumarShetty,AndreyShprengel.</p>
 <h2 id="are-there-more-javascript-lovers-or-java-lovers">Are there more Javascript lovers or Java lovers?</h2>
-<p><pre>
-<span class="keyword">var</span> studentjs = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.body.toString().toLowerCase()
-    <span class="keyword">return</span> _.includes(string, <span class="string">&quot;javascript&quot;</span>)
+<p><pre><code>var studentjs = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, &quot;javascript&quot;)
 })
-<span class="keyword">var</span> studentj = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.body.toString().toLowerCase()
-    <span class="keyword">return</span> _.includes(string, <span class="string">&quot;java&quot;</span>)
+var studentj = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	return _.includes(string, &quot;java&quot;)
 })
-<span class="keyword">if</span> (studentjs.size &gt; studentj.size){
-    <span class="keyword">return</span> <span class="string">&quot;Javascript&quot;</span>;
+if (studentjs.size &gt; studentj.size){
+	return &quot;Javascript&quot;;
 }
-<span class="keyword">else</span>{
-    <span class="keyword">return</span> <span class="string">&quot;Java&quot;</span>;
-}
-</pre></p>
+else{
+	return &quot;Java&quot;;
+}</code></pre></p>
 <p>The answer is Java.</p>
 <h2 id="who-like-the-same-food-as-kjblakemore">Who like the same food as <code>kjblakemore</code>?</h2>
-<p><pre>
-<span class="keyword">var</span> text = (_.find(data.comments,{user:{login: <span class="string">&quot;kjblakemore&quot;</span>}})).body
-<span class="keyword">var</span> lines = text.split(<span class="string">&apos;\n&apos;</span>)
-<span class="keyword">var</span> line = _.last(lines)
-<span class="keyword">var</span> sections = line.split(<span class="string">&apos;: &apos;</span>)
-<span class="keyword">var</span> food =  _.last(sections)
-<span class="keyword">var</span> students = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.body.toString().toLowerCase()
-    food = food.toLowerCase()	
-    <span class="keyword">return</span> _.includes(string, food)
+<p><pre><code>var text = (_.find(data.comments,{user:{login: &quot;kjblakemore&quot;}})).body
+var lines = text.split(&apos;\n&apos;)
+var line = _.last(lines)
+var sections = line.split(&apos;: &apos;)
+var food =  _.last(sections)
+var students = _.filter(data.comments, function(comment){
+	var string = comment.body.toString().toLowerCase()
+	food = food.toLowerCase()	
+	return _.includes(string, food)
 })
-<span class="keyword">return</span> _.pluck(students, <span class="string">&quot;user.login&quot;</span>)
-</pre></p>
+return _.pluck(students, &quot;user.login&quot;)</code></pre></p>
 <p>Their names are kjblakemore.</p>
 
                     
@@ -770,11 +886,19 @@ more challenges analyses.</p>
 <script src="../../gitbook/app.js"></script>
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/bigdata.js"></script>
     
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
     
 
 <script>

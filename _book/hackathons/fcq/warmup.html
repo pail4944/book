@@ -29,6 +29,14 @@
         
     
         
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.css">
+        
+    
+        
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
@@ -48,7 +56,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="2.3.1" data-basepath="../.." data-revision="Sun Sep 20 2015 22:18:36 GMT-0600 (MDT)">
+    <div class="book" data-level="2.3.1" data-basepath="../.." data-revision="Fri Sep 25 2015 18:14:32 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -379,6 +387,87 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="learning/week5/index.html">
+            
+                
+                    <a href="../../learning/week5/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Week 5
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="learning/week5/birdstrike-report.html">
+            
+                
+                    <a href="../../learning/week5/birdstrike-report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.1.</b>
+                        
+                        Birdstrike Report
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="learning/week5/viz-steps.html">
+            
+                
+                    <a href="../../learning/week5/viz-steps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.2.</b>
+                        
+                        Viz Intro
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="learning/week5/viz-drills.html">
+            
+                
+                    <a href="../../learning/week5/viz-drills.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.3.</b>
+                        
+                        Viz Drills
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="learning/week5/viz-pokemon.html">
+            
+                
+                    <a href="../../learning/week5/viz-pokemon.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.4.</b>
+                        
+                        Viz Pokemon
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -583,6 +672,42 @@
             
         </li>
     
+        <li class="chapter " data-level="2.4" data-path="hackathons/birdstrikes/index.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Birdstrikes
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="hackathons/birdstrikes/report.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        Report
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -697,29 +822,23 @@
 <h1 id="warmup">Warmup</h1>
 <p>Next, complete the following warmup exercises as a team.</p>
 <h2 id="how-many-unique-subject-codes">How many unique subject codes?</h2>
-<p><pre>
-<span class="keyword">var</span> result = _.pluck(data, <span class="string">&apos;Subject&apos;</span>)
+<p><pre><code>var result = _.pluck(data, &apos;Subject&apos;)
 result  = _.uniq(result)
-<span class="keyword">return</span> result.length
-</pre></p>
+return result.length</code></pre></p>
 <p>They are 113 unique subject codes.</p>
 <h2 id="how-many-computer-science-csci-courses">How many computer science (CSCI) courses?</h2>
-<p><pre>
-<span class="keyword">var</span> result = _.filter(data, <span class="keyword">function</span>(d){
-    <span class="keyword">return</span> _.includes(d.Subject, <span class="string">&quot;CSCI&quot;</span>)
+<p><pre><code>var result = _.filter(data, function(d){
+	return _.includes(d.Subject, &quot;CSCI&quot;)
 })
-<span class="keyword">return</span> result.length
-</pre></p>
+return result.length</code></pre></p>
 <p>They are 63 computer science courses.</p>
 <h2 id="what-is-the-distribution-of-the-courses-across-subject-codes">What is the distribution of the courses across subject codes?</h2>
-<p><pre>
-<span class="keyword">var</span> result = _.groupBy(data, <span class="keyword">function</span>(d){
-    <span class="keyword">return</span> d.Subject
+<p><pre><code>var result = _.groupBy(data, function(d){
+	return d.Subject
 })
-<span class="keyword">return</span> _.mapValues(result, <span class="keyword">function</span>(d){
-    <span class="keyword">return</span> d.length
-})
-</pre></p>
+return _.mapValues(result, function(d){
+	return d.length
+})</code></pre></p>
 <table>
 
     <tr>
@@ -1290,15 +1409,13 @@ result  = _.uniq(result)
 </table>
 
 <h2 id="what-subset-of-these-subject-codes-have-more-than-100-courses">What subset of these subject codes have more than 100 courses?</h2>
-<p><pre>
-<span class="keyword">var</span> grps = _.groupBy(data, <span class="string">&apos;Subject&apos;</span>)
-<span class="keyword">var</span> ret = _.pick(_.mapValues(grps, <span class="keyword">function</span>(d){
-    <span class="keyword">return</span> d.length
-}), <span class="keyword">function</span>(x){
-    <span class="keyword">return</span> x &gt; <span class="number">100</span>
+<p><pre><code>var grps = _.groupBy(data, &apos;Subject&apos;)
+var ret = _.pick(_.mapValues(grps, function(d){
+    return d.length
+}), function(x){
+    return x &gt; 100
 })
-<span class="keyword">return</span> ret
-</pre></p>
+return ret</code></pre></p>
 <table>
 
     <tr>
@@ -1374,15 +1491,13 @@ result  = _.uniq(result)
 </table>
 
 <h2 id="what-subset-of-these-subject-codes-have-more-than-5000-total-enrollments">What subset of these subject codes have more than 5000 total enrollments?</h2>
-<p><pre>
-<span class="keyword">var</span> grps = _.groupBy(data, <span class="string">&apos;Subject&apos;</span>)
-<span class="keyword">var</span> ret = _.pick(_.mapValues(grps, <span class="keyword">function</span>(d){
-    <span class="keyword">return</span> _.sum(_.pluck(d, <span class="string">&apos;N.ENROLL&apos;</span>))
-}), <span class="keyword">function</span>(x){
-    <span class="keyword">return</span> x &gt; <span class="number">5000</span>
+<p><pre><code>var grps = _.groupBy(data, &apos;Subject&apos;)
+var ret = _.pick(_.mapValues(grps, function(d){
+    return _.sum(_.pluck(d, &apos;N.ENROLL&apos;))
+}), function(x){
+    return x &gt; 5000
 })
-<span class="keyword">return</span> ret
-</pre></p>
+return ret</code></pre></p>
 <table>
 
     <tr>
@@ -1438,12 +1553,10 @@ result  = _.uniq(result)
 </table>
 
 <h2 id="what-are-the-course-numbers-of-the-courses-tom-pei-hsiu-yeh-taught">What are the course numbers of the courses Tom (PEI HSIU) Yeh taught?</h2>
-<p><pre>
-<span class="keyword">var</span> result = _.filter(data, <span class="keyword">function</span>(d){
-    <span class="keyword">return</span> _.includes(_.pluck(d.Instructors, <span class="string">&quot;name&quot;</span>), <span class="string">&quot;YEH, PEI HSIU&quot;</span>) 
+<p><pre><code>var result = _.filter(data, function(d){
+	return _.includes(_.pluck(d.Instructors, &quot;name&quot;), &quot;YEH, PEI HSIU&quot;) 
 })
-<span class="keyword">return</span> _.uniq(_.pluck(result, <span class="string">&apos;Course&apos;</span>))
-</pre></p>
+return _.uniq(_.pluck(result, &apos;Course&apos;))</code></pre></p>
 <p>They are 4830.</p>
 
                     
@@ -1467,11 +1580,19 @@ result  = _.uniq(result)
 <script src="../../gitbook/app.js"></script>
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/bigdata.js"></script>
     
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
     
 
 <script>

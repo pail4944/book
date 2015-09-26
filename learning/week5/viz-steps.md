@@ -19,7 +19,7 @@ Study the following example carefully.
 data.countries = [{name: 'China', pop: 1393783836},
  {name: 'India', pop: 1267401849},
  {name: 'USA', pop: 322583006},
- {name: 'Indonesia', pop: 25281224}]
+ {name: 'Indonesia', pop: 252812240}]
 
 {% endlodash %}
 
@@ -102,7 +102,7 @@ task is to add code to complete each exercise.
 data.countries = [{name: 'China', pop: 1393783836},
  {name: 'India', pop: 1267401849},
  {name: 'USA', pop: 322583006},
- {name: 'Indonesia', pop: 25281224}]
+ {name: 'Indonesia', pop: 252812240}]
 
 {% endlodash %}
 
@@ -115,8 +115,7 @@ function computeX(d, i) {
 }
 
 function computeHeight(d, i){
-    // TODO: fix this to return the correct height
-    return 10 + i * 50
+    return d.pop/5000000
 }
 
 data.viz = _.map(data.countries, function(d, i){
@@ -168,7 +167,7 @@ The resulting svg tags are rendered as below
 data.countries = [{name: 'China', pop: 1393783836},
  {name: 'India', pop: 1267401849},
  {name: 'USA', pop: 322583006},
- {name: 'Indonesia', pop: 25281224}]
+ {name: 'Indonesia', pop: 252812240}]
 
 {% endlodash %}
 
@@ -177,21 +176,22 @@ data.countries = [{name: 'China', pop: 1393783836},
 {% lodash %}
 
 function computeX(d, i) {
-    return i * 20
+    return i + d.pop/5000000
 }
 
 function computeHeight(d, i){
-    // TODO: fix this to return the correct height
-    return 10 + i * 50
+    return d.pop/5000000
 }
 
-// TODO: add a new mapper function for width
+function computeWidth(d, i){
+    return d.pop/5000000
+}
 
 data.viz = _.map(data.countries, function(d, i){
-        // TODO: add a new attribute to each viz object
-        return {
+       return {
             x: computeX(d, i),
-            height: computeHeight(d, i)
+            height: computeHeight(d, i),
+	    width: computeWidth(d, i)
         }    
     })
 
@@ -199,12 +199,11 @@ data.viz = _.map(data.countries, function(d, i){
 
 ### Step 3: Template
 
-(TODO: add template variables for width and height)
 {% template name='foo' %}
 
 <rect x="${d.x}"
-     width="20"
-     height="20"
+     width="${d.width}"
+     height="${d.height}"
      style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
 
 {% endtemplate %}

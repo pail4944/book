@@ -14,34 +14,101 @@ This time, the data is not already prepared for you in a nice JSON format. You
 will need to do it on your own, replacing the placeholder `birdstrike.json` with
 real data.
 
-# (Question 1) by (Name)
+
+# What are the condition:sky where usually caused a damage? - by fadhilfath
 
 {% lodash %}
-return "[answer]"
+var result =_.chain(data)
+        .groupBy(function(obj) { return obj["Conditions: Sky"]; })
+        .values()
+        .map(function(arr) { return [arr[0]["Conditions: Sky"], arr.length]; })
+        .reduce(function(n, p) {
+            if ((n[1] > p[1]) && (n[0] != "")) { return n; } else { return p; }
+        })
+	.value()
+return result[0]
 {% endlodash %}
 
+{{ result | json }}.
 
-# (Question 2) by (Name)
+# Flight Phase of Birdstrikes- by Kevin Gifford
 
 {% lodash %}
-return "[answer]"
+var result =_.chain(data)
+        .groupBy(function(obj) { return obj["When: Phase of flight"];})
+        .values()
+        .map(function(arr) { return [arr[0]["When: Phase of flight"], arr.length]; })
+        .reduce(function(n, p) {
+            if ((n[1] > p[1]) && (n[0] != "")) { return n; } else { return p; }
+        })
+	.value()
+return result[0]
 {% endlodash %}
 
+{{ result | json }}
 
-# (Question 3) by (Name)
+# What is the correlation between the feet above the ground and the number of bird strikes
 
 {% lodash %}
-return "[answer]"
+return _.chain(data)
+        .groupBy(function(obj) { return obj["Feet above ground"]; })
+        .mapValues(function(arr) { return arr.length; })
+        .value()
 {% endlodash %}
 
-# (Question 4) by (Name)
+{{ result | json }}
+
+# Which airport had the highest number of bird strikes? (Zhya215).
 
 {% lodash %}
-return "[answer]"
+var result = _.chain(data)
+        .groupBy(function(obj) { return obj["Airport: Name"]; })
+        .values()
+        .map(function(arr) { return [arr[0]["Airport: Name"], arr.length]; })
+        .reduce(function(n, p) {
+            if ((n[1] > p[1]) && (n[0] != "UNKNOWN")) { return n; } else { return p; }
+        }).value()
+return result[0]
 {% endlodash %}
 
-# (Question 5) by (Name)
+{{ result | json }}
+
+
+
+# Which airline have to incur most repair cost due to damage ? (sumi6109)
 
 {% lodash %}
-return "[answer]"
+var airlines = _.groupBy(data, 'Aircraft: Airline/Operator')
+
+var cost = _.mapValues(airlines, function(s) {
+   return _.sum(_.pluck(s, 'Cost: Total $'))
+})
+
+var highest =  _.last(_.sortBy(_.pairs(cost), function(d) {
+   return d[1]
+}))
+
+return highest[0]
 {% endlodash %}
+
+{{ result | json }}
+
+# Which plane model strikes the most birds? (twagar95)
+
+{% lodash %}
+var result = _.chain(data)
+        .groupBy(function(obj) { return obj["Aircraft: Make/Model"]; })
+        .values()
+        .map(function(arr) { return [arr[0]["Aircraft: Make/Model"], arr.length]; })
+       .sortBy(function(arr){return arr[1]})
+	.reverse()
+	 .reduce(function(n, p) {
+            if ((n[1] > p[1]) && (n[0] != "UNKNOWN")) { return n; } else { return p; }})
+	.value()
+
+return result[0]
+
+{% endlodash %}
+
+{{ result | json }}
+

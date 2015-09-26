@@ -29,6 +29,14 @@
         
     
         
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.css">
+        
+    
+        
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
@@ -48,7 +56,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="2.2.4" data-basepath="../.." data-revision="Sun Sep 20 2015 22:18:36 GMT-0600 (MDT)">
+    <div class="book" data-level="2.2.4" data-basepath="../.." data-revision="Fri Sep 25 2015 18:14:32 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -379,6 +387,87 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="learning/week5/index.html">
+            
+                
+                    <a href="../../learning/week5/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Week 5
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="learning/week5/birdstrike-report.html">
+            
+                
+                    <a href="../../learning/week5/birdstrike-report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.1.</b>
+                        
+                        Birdstrike Report
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="learning/week5/viz-steps.html">
+            
+                
+                    <a href="../../learning/week5/viz-steps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.2.</b>
+                        
+                        Viz Intro
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="learning/week5/viz-drills.html">
+            
+                
+                    <a href="../../learning/week5/viz-drills.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.3.</b>
+                        
+                        Viz Drills
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="learning/week5/viz-pokemon.html">
+            
+                
+                    <a href="../../learning/week5/viz-pokemon.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.4.</b>
+                        
+                        Viz Pokemon
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -583,6 +672,42 @@
             
         </li>
     
+        <li class="chapter " data-level="2.4" data-path="hackathons/birdstrikes/index.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Birdstrikes
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="hackathons/birdstrikes/report.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        Report
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -698,46 +823,38 @@
 on the &quot;self-introduction&quot; data. Out of these questions, our team chose to tackle on
 the following:</p>
 <h1 id="how-many-applied-math-majors-are-there">How many Applied Math Majors are there?</h1>
-<p><pre>
-<span class="keyword">var</span> students = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.body.toLowerCase()
-    <span class="keyword">return</span> _.includes(string, <span class="string">&quot;applied math&quot;</span>)
+<p><pre><code>var students = _.filter(data.comments, function(comment){
+	var string = comment.body.toLowerCase()
+	return _.includes(string, &quot;applied math&quot;)
 })
-<span class="keyword">return</span> _.size(students)
-</pre>
+return _.size(students)</code></pre>
 The answer is 3.</p>
 <h1 id="how-many-people-submitted-after-august-24th-the-first-day-of-class">How many people submitted after August 24th? (The first day of class</h1>
-<p><pre>
-<span class="keyword">var</span> students = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.created_at
-    string = string.split(<span class="string">&apos;T&apos;</span>)[<span class="number">0</span>].split(<span class="string">&apos;-&apos;</span>)[<span class="number">2</span>]
-    <span class="keyword">if</span> (string &gt; <span class="number">24</span>){
-    <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
+<p><pre><code>var students = _.filter(data.comments, function(comment){
+	var string = comment.created_at
+	string = string.split(&apos;T&apos;)[0].split(&apos;-&apos;)[2]
+	if (string &gt; 24){
+	return true;
+	}
 })
-<span class="keyword">return</span> _.size(students)
-</pre>
+return _.size(students)</code></pre>
 The answer is 5.</p>
 <h1 id="who-was-the-first-person-to-say-their-favorite-food-was-mexican">Who was the first person to say their favorite food was Mexican?</h1>
-<p><pre>
-<span class="keyword">var</span> student = _.find(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.body.toLowerCase()
-    <span class="keyword">return</span> _.includes(string, <span class="string">&quot;mexican&quot;</span>)
+<p><pre><code>var student = _.find(data.comments, function(comment){
+	var string = comment.body.toLowerCase()
+	return _.includes(string, &quot;mexican&quot;)
 })
-<span class="keyword">return</span> student.user.login
-</pre>
+return student.user.login</code></pre>
 The name is tiro6090.</p>
 <h1 id="how-many-people-submitted-before-noon">How many people submitted before noon?</h1>
-<p><pre>
-<span class="keyword">var</span> students = _.filter(data.comments, <span class="keyword">function</span>(comment){
-    <span class="keyword">var</span> string = comment.created_at
-    string = string.split(<span class="string">&apos;T&apos;</span>)[<span class="number">1</span>].split(<span class="string">&apos;:&apos;</span>)[<span class="number">0</span>]
-    <span class="keyword">if</span> (string &lt; <span class="number">12</span>){
-    <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
+<p><pre><code>var students = _.filter(data.comments, function(comment){
+	var string = comment.created_at
+	string = string.split(&apos;T&apos;)[1].split(&apos;:&apos;)[0]
+	if (string &lt; 12){
+	return true;
+	}
 })
-<span class="keyword">return</span> _.size(students)
-</pre>
+return _.size(students)</code></pre>
 The answer is 6.</p>
 
                     
@@ -761,11 +878,19 @@ The answer is 6.</p>
 <script src="../../gitbook/app.js"></script>
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/bigdata.js"></script>
     
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
     
 
 <script>

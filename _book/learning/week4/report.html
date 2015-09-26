@@ -29,6 +29,14 @@
         
     
         
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.css">
+        
+    
+        
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
@@ -48,7 +56,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.5.1" data-basepath="../.." data-revision="Sun Sep 20 2015 22:18:36 GMT-0600 (MDT)">
+    <div class="book" data-level="1.5.1" data-basepath="../.." data-revision="Fri Sep 25 2015 18:14:32 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -379,6 +387,87 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="learning/week5/index.html">
+            
+                
+                    <a href="../../learning/week5/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Week 5
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="learning/week5/birdstrike-report.html">
+            
+                
+                    <a href="../../learning/week5/birdstrike-report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.1.</b>
+                        
+                        Birdstrike Report
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="learning/week5/viz-steps.html">
+            
+                
+                    <a href="../../learning/week5/viz-steps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.2.</b>
+                        
+                        Viz Intro
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="learning/week5/viz-drills.html">
+            
+                
+                    <a href="../../learning/week5/viz-drills.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.3.</b>
+                        
+                        Viz Drills
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="learning/week5/viz-pokemon.html">
+            
+                
+                    <a href="../../learning/week5/viz-pokemon.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.4.</b>
+                        
+                        Viz Pokemon
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -583,6 +672,42 @@
             
         </li>
     
+        <li class="chapter " data-level="2.4" data-path="hackathons/birdstrikes/index.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Birdstrikes
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="hackathons/birdstrikes/report.html">
+            
+                
+                    <a href="../../hackathons/birdstrikes/report.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        Report
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -706,23 +831,19 @@ will be able to independently reproduce these solutions when asked to do so.
 Coming up, we will incorporate variations of these questions into a future hackathon
  and you are expected to be capable of reproducing and adapting your solutions.</p>
 <h1 id="which-classes-have-the-highest-hours-of-work-per-week-16-parker-illig">Which classes have the highest hours of work per week? (16+) (Parker Illig)</h1>
-<p><pre>
-
-<span class="keyword">var</span> result = _.groupBy(data, <span class="keyword">function</span>(d){
-    <span class="keyword">var</span> dept = d.Subject
-    <span class="keyword">var</span> num = d.Course
-    <span class="keyword">var</span> combine = dept +  <span class="string">&quot; &quot;</span> + num	
-    <span class="keyword">return</span> combine
+<p><pre><code>var result = _.groupBy(data, function(d){
+	var dept = d.Subject
+	var num = d.Course
+	var combine = dept +  &quot; &quot; + num	
+	return combine
 })
-<span class="keyword">var</span> classes = _.mapValues(result, <span class="keyword">function</span>(d){
-    <span class="keyword">var</span> wk = _.pluck(d, <span class="string">&apos;Workload.Hrs_Wk&apos;</span>)
-    <span class="keyword">return</span> _.includes(wk, <span class="string">&apos;16+&apos;</span>)
+var classes = _.mapValues(result, function(d){
+	var wk = _.pluck(d, &apos;Workload.Hrs_Wk&apos;)
+	return _.includes(wk, &apos;16+&apos;)
 })
-<span class="keyword">return</span> _.pick(classes, <span class="keyword">function</span>(x){
-    <span class="keyword">return</span> x==<span class="keyword">true</span>
-})
-
-</pre></p>
+return _.pick(classes, function(x){
+	return x==true
+})</code></pre></p>
 <table>
 
     <tr>
@@ -804,34 +925,30 @@ Coming up, we will incorporate variations of these questions into a future hacka
 </table>
 
 <h1 id="what-department-should-i-take-classes-in-if-i-want-to-boost-my-gpa-caleb-hsu">What department should I take classes in if I want to boost my GPA? (Caleb Hsu)</h1>
-<p><pre>
-<span class="keyword">var</span> subjects = _.groupBy(data, <span class="string">&apos;Subject_Label&apos;</span>)
+<p><pre><code>var subjects = _.groupBy(data, &apos;Subject_Label&apos;)
 
-<span class="keyword">var</span> avgA = _.mapValues(subjects, <span class="keyword">function</span>(s) {
-   <span class="keyword">return</span> _.sum(_.pluck(s, <span class="string">&apos;PCT.A&apos;</span>)) / s.length
+var avgA = _.mapValues(subjects, function(s) {
+   return _.sum(_.pluck(s, &apos;PCT.A&apos;)) / s.length
 })
 
-<span class="keyword">var</span> highest =  _.last(_.sortBy(_.pairs(avgA), <span class="keyword">function</span>(d) {
-   <span class="keyword">return</span> d[<span class="number">1</span>]
+var highest =  _.last(_.sortBy(_.pairs(avgA), function(d) {
+   return d[1]
 }))
 
-<span class="keyword">return</span> highest[<span class="number">0</span>]
-</pre></p>
+return highest[0]</code></pre></p>
 <p>I should take classes in the Museum department if I want to boost my GPA.</p>
 <h1 id="which-classes-with-specific-professors-damaged-the-most-students-sort-by-d-f-rating-denis-kazakov">Which classes(with specific professors) damaged the most students (sort by: D + F rating)? (Denis Kazakov)</h1>
-<p><pre>
-<span class="keyword">var</span> clean = _.filter(data, <span class="keyword">function</span>(n){
-    <span class="keyword">return</span> n.PCT.D != <span class="string">&quot;&quot;</span>
+<p><pre><code>var clean = _.filter(data, function(n){
+	return n.PCT.D != &quot;&quot;
 })
 
-<span class="keyword">var</span> map = _.map(clean, <span class="keyword">function</span>(n){
-  <span class="keyword">return</span> {course: n.CourseTitle, ratio: n.PCT.D + n.PCT.F, name: _.pluck(n.Instructors, <span class="string">&quot;name&quot;</span>)}
+var map = _.map(clean, function(n){
+  return {course: n.CourseTitle, ratio: n.PCT.D + n.PCT.F, name: _.pluck(n.Instructors, &quot;name&quot;)}
 })
 
-<span class="keyword">return</span> _.sortBy(map, <span class="keyword">function</span>(n){
-  <span class="keyword">return</span> n.ratio
-}).reverse()
-</pre></p>
+return _.sortBy(map, function(n){
+  return n.ratio
+}).reverse()</code></pre></p>
 <table>
 
     <tr>
@@ -10864,18 +10981,16 @@ Coming up, we will incorporate variations of these questions into a future hacka
 
 
 <h1 id="what-department-has-the-lowest-average-gpa-nicole-woytarowicz">What department has the lowest average GPA? (Nicole Woytarowicz)</h1>
-<p><pre>
-<span class="keyword">var</span> subjects = _.groupBy(data, <span class="string">&apos;Subject&apos;</span>)
-<span class="keyword">var</span> departments = _.pick(_.mapValues(subjects, <span class="keyword">function</span>(d){
-   <span class="keyword">return</span> (_.sum(_.pluck(d, <span class="string">&quot;AVG_GRD&quot;</span>)))/(d.length)
-}), <span class="keyword">function</span>(x){
-   <span class="keyword">return</span> x &gt; <span class="number">0</span>
+<p><pre><code>var subjects = _.groupBy(data, &apos;Subject&apos;)
+var departments = _.pick(_.mapValues(subjects, function(d){
+   return (_.sum(_.pluck(d, &quot;AVG_GRD&quot;)))/(d.length)
+}), function(x){
+   return x &gt; 0
 })
 
-<span class="keyword">var</span> worst = _.min(departments)
+var worst = _.min(departments)
 
-<span class="keyword">return</span> {Department: (_.invert(departments))[worst], Average_GPA: worst}
-</pre></p>
+return {Department: (_.invert(departments))[worst], Average_GPA: worst}</code></pre></p>
 <pre style="font-size:11px;line-height:1;max-height:300px;">{
  &quot;Department&quot;: &quot;BADM&quot;,
  &quot;Average_GPA&quot;: 1.1603225806451614
@@ -10905,11 +11020,19 @@ Coming up, we will incorporate variations of these questions into a future hacka
 <script src="../../gitbook/app.js"></script>
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/bigdata.js"></script>
     
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-bigdata/jquery.jsonview.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
     
 
 <script>
