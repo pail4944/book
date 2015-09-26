@@ -29,7 +29,7 @@ var result =_.chain(data)
 return result[0]
 {% endlodash %}
 
-The conditon with the most birdstrikes is {{ result | json }}.
+{{ result | json }}.
 
 # Flight Phase of Birdstrikes- by Kevin Gifford
 
@@ -45,7 +45,7 @@ var result =_.chain(data)
 return result[0]
 {% endlodash %}
 
-The most birstrikes happen during the {{ result | json }} phase.
+{{ result | json }}
 
 # What is the correlation between the feet above the ground and the number of bird strikes
 
