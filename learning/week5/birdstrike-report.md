@@ -29,7 +29,7 @@ var result =_.chain(data)
 return result[0]
 {% endlodash %}
 
-{{ result | json }}.
+{{ result | json }}
 
 # Flight Phase of Birdstrikes- by Kevin Gifford
 
