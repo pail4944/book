@@ -87,27 +87,45 @@ function computeWidth(d, i) {
     return i * 10 + 10
 }
 
+function computeA(d, i) {
+    return d.Attack
+}
+
+function computeD(d, i) {
+    return d.Defense
+}
+
 function computeHeight(d, i) {
     return i * 10 + 10
 }
 
-// HINT: figure out a way to compute a Y offset on each call to return the sum of of the heights
-// of all previous bars
 function computeY(d, i) {
-    return i * 20
+    var height = 0
+	var defenses = _.pluck(data, "Defense")
+	for (var n = 0; n<i; n++){
+		height = height + defenses[n]
+	}
+	return height
 }
 
 function computeColor(d, i) {
     return 'red'
 }
 
+function computeLabel(d, i) {
+    return d.Name
+}
+
 var viz = _.map(data, function(d, i){
             return {
                 x: computeX(d, i),
                 y: computeY(d, i),
+				attack: computeA(d,i),
+				defense: computeD(d,i),
                 height: computeHeight(d, i),
                 width: computeWidth(d, i),
-                color: computeColor(d, i)
+                color: computeColor(d, i),
+		label: computeLabel(d, i)
             }
          })
 console.log(viz)
@@ -120,11 +138,14 @@ return result.join('\n')
 
 {% template %}
 <g transform="translate(0 ${d.y})">
-    <rect width="${d.width}"
-         height="${d.height}"
+    <rect width="${d.attack}"
+         height="${d.defense}"
          style="fill:${d.color};
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
+	<text transform="translate(0 15)">
+        ${d.label}
+    </text>
 </g>
 
 {% output %}

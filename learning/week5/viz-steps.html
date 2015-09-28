@@ -56,7 +56,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.6.2" data-basepath="../.." data-revision="Fri Sep 25 2015 18:19:21 GMT-0600 (MDT)">
+    <div class="book" data-level="1.6.2" data-basepath="../.." data-revision="Sun Sep 27 2015 23:14:51 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -1040,7 +1040,7 @@ return result.join(&apos;\n&apos;)</code></pre></p>
  {name: &apos;Indonesia&apos;, pop: 252812240}]</code></pre></p>
 <h3 id="step-2-define-mappers">Step 2: Define Mappers</h3>
 <p><pre><code>function computeX(d, i) {
-    return i + d.pop/5000000
+    return 0
 }
 
 function computeHeight(d, i){
@@ -1055,7 +1055,7 @@ data.viz = _.map(data.countries, function(d, i){
        return {
             x: computeX(d, i),
             height: computeHeight(d, i),
-	    width: computeWidth(d, i)
+			width: computeWidth(d, i)
         }    
     })</code></pre></p>
 <h3 id="step-3-template">Step 3: Template</h3>
@@ -1075,27 +1075,27 @@ return result.join(&apos;\n&apos;)</code></pre></p>
 <p>The resulting svg tags are rendered as below</p>
 <div style="border:1px solid grey; padding:5px;"><svg height="500" width="800">
 
-<rect x="278.7567672" width="278.7567672" height="278.7567672" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
+<rect x="0" width="278.7567672" height="278.7567672" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
 
 
 
 
-<rect x="254.4803698" width="253.4803698" height="253.4803698" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
+<rect x="0" width="253.4803698" height="253.4803698" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
 
 
 
 
-<rect x="66.5166012" width="64.5166012" height="64.5166012" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
+<rect x="0" width="64.5166012" height="64.5166012" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
 
 
 
 
-<rect x="53.562448" width="50.562448" height="50.562448" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
+<rect x="0" width="50.562448" height="50.562448" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
 
 </svg><pre><code>
 
 
-&lt;rect x=&quot;278.7567672&quot;
+&lt;rect x=&quot;0&quot;
      width=&quot;278.7567672&quot;
      height=&quot;278.7567672&quot;
      style=&quot;fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)&quot; /&gt;
@@ -1103,7 +1103,7 @@ return result.join(&apos;\n&apos;)</code></pre></p>
 
 
 
-&lt;rect x=&quot;254.4803698&quot;
+&lt;rect x=&quot;0&quot;
      width=&quot;253.4803698&quot;
      height=&quot;253.4803698&quot;
      style=&quot;fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)&quot; /&gt;
@@ -1111,7 +1111,7 @@ return result.join(&apos;\n&apos;)</code></pre></p>
 
 
 
-&lt;rect x=&quot;66.5166012&quot;
+&lt;rect x=&quot;0&quot;
      width=&quot;64.5166012&quot;
      height=&quot;64.5166012&quot;
      style=&quot;fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)&quot; /&gt;
@@ -1119,7 +1119,7 @@ return result.join(&apos;\n&apos;)</code></pre></p>
 
 
 
-&lt;rect x=&quot;53.562448&quot;
+&lt;rect x=&quot;0&quot;
      width=&quot;50.562448&quot;
      height=&quot;50.562448&quot;
      style=&quot;fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)&quot; /&gt;
@@ -1161,6 +1161,10 @@ return result.join(&apos;\n&apos;)</code></pre></p>
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

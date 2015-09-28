@@ -2,7 +2,7 @@
 
 {% title %}
 
-Compare attack and defense points side by side
+Compare attack points and represent defense points using bar heights
 
 {% data %}
 [
@@ -80,7 +80,11 @@ Compare attack and defense points side by side
 {% solution %}
 
 function computeX(d, i) {
-    return 120
+    return 0
+}
+
+function computeWidth(d, i) {
+    return i * 10 + 10
 }
 
 function computeA(d, i) {
@@ -91,6 +95,12 @@ function computeD(d, i) {
     return d.Defense
 }
 
+function computeHeight(d, i) {
+    return i * 10 + 10
+}
+
+// HINT: figure out a way to compute a Y offset on each call to return the sum of of the heights
+// of all previous bars
 function computeY(d, i) {
     return i * 20
 }
@@ -102,12 +112,15 @@ function computeColor(d, i) {
 function computeLabel(d, i) {
     return d.Name
 }
+
 var viz = _.map(data, function(d, i){
             return {
                 x: computeX(d, i),
                 y: computeY(d, i),
-                attack: computeA(d,i),
+		attack: computeA(d,i),
 		defense: computeD(d,i),
+                height: computeHeight(d, i),
+                width: computeWidth(d, i),
                 color: computeColor(d, i),
 		label: computeLabel(d, i)
             }
@@ -121,19 +134,10 @@ var result = _.map(viz, function(d){
 return result.join('\n')
 
 {% template %}
-<g transform="translate(120 ${d.y})">
-    <rect
-         x="-${d.attack}"
-         width="${d.attack}"
-         height="20"
-         style="fill:red;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-	<rect
-         x=0
-         width="${d.defense}"
-         height="20"
-         style="fill:blue;
+<g transform="translate(0 ${d.y})">
+    <rect width="${d.Attack}"
+         height="${d.Defense}"
+         style="fill:${d.color};
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
 	<text transform="translate(0 15)">
@@ -143,142 +147,72 @@ return result.join('\n')
 
 {% output %}
 
-<g transform="translate(120 0)">
-    <rect
-         x="-48"
-         width="48"
-         height="20"
+<g transform="translate(0 0)">
+    <rect width="48"
+         height="65"
          style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-    <rect
-         x="0"
-         width="65"
-         height="20"
-         style="fill:blue;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-
     <text transform="translate(0 15)">
         Squirtle
     </text>
 </g>
-<g transform="translate(120 20)">
-    <rect
-         x="-104"
-         width="104"
-         height="20"
+<g transform="translate(0 65)">
+    <rect width="104"
+         height="78"
          style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-    <rect
-         x="0"
-         width="78"
-         height="20"
-         style="fill:blue;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-
     <text transform="translate(0 15)">
         Mega Charizard Y
     </text>
 </g>
-<g transform="translate(120 40)">
-    <rect
-         x="-52"
-         width="52"
-         height="20"
+<g transform="translate(0 143)">
+    <rect width="52"
+         height="43"
          style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-    <rect
-         x="0"
-         width="43"
-         height="20"
-         style="fill:blue;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-
     <text transform="translate(0 15)">
         Charmander
     </text>
 </g>
-<g transform="translate(120 60)">
-    <rect
-         x="-100"
-         width="100"
-         height="20"
+<g transform="translate(0 186)">
+    <rect width="100"
+         height="123"
          style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-    <rect
-         x="0"
-         width="123"
-         height="20"
-         style="fill:blue;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-
     <text transform="translate(0 15)">
         Mega Venusaur
     </text>
 </g>
-<g transform="translate(120 80)">
-    <rect
-         x="-82"
-         width="82"
-         height="20"
+<g transform="translate(0 309)">
+    <rect width="82"
+         height="83"
          style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-    <rect
-         x="0"
-         width="83"
-         height="20"
-         style="fill:blue;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-
     <text transform="translate(0 15)">
         Venusaur
     </text>
 </g>
-<g transform="translate(120 100)">
-    <rect
-         x="-62"
-         width="62"
-         height="20"
+<g transform="translate(0 392)">
+    <rect width="62"
+         height="63"
          style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-    <rect
-         x="0"
-         width="63"
-         height="20"
-         style="fill:blue;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-
     <text transform="translate(0 15)">
         Ivysaur
     </text>
 </g>
-<g transform="translate(120 120)">
-    <rect
-         x="-49"
-         width="49"
-         height="20"
+<g transform="translate(0 455)">
+    <rect width="49"
+         height="49"
          style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-    <rect
-         x="0"
-         width="49"
-         height="20"
-         style="fill:blue;
-                stroke-width:1;
-                stroke:rgb(0,0,0)" />
-
     <text transform="translate(0 15)">
         Bulbasaur
     </text>
