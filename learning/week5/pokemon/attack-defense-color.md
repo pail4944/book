@@ -91,11 +91,15 @@ function computeY(d, i) {
     return i * 20
 }
 
-// HINT: find the max Defense point (_.max, _.pluck) so that you can scale
-//       each Pokemon's defense point with respect to it to obtain a value 'r'
-//       between 0 and 255. Generate a different rgb(r,0,0) string
+function computeLabel(d,i){
+	return d.Name
+}
+
+
 function computeColor(d, i) {
-    return 'rgb(200,0,0)'
+	var maxdefense = _.max(_.pluck(data, 'Defense'))
+	var color = _.round((d.Defense*255)/maxdefense) 
+	return 'rgb(' + color + ',0,0)'
 }
 
 var viz = _.map(data, function(d, i){
@@ -103,8 +107,9 @@ var viz = _.map(data, function(d, i){
                 x: computeX(d, i),
                 y: computeY(d, i),
                 width: computeWidth(d, i),
-                color: computeColor(d, i)                
-            }
+                color: computeColor(d, i),                
+				label: computeLabel(d,i)
+			}
          })
 console.log(viz)
 
@@ -120,7 +125,10 @@ return result.join('\n')
          height="20"
          style="fill:${d.color};
                 stroke-width:1;
-                stroke:rgb(0,0,0)" />    
+                stroke:rgb(0,0,0)" />  
+		<text transform="translate(0 15)">
+        ${d.label}
+		</text>
 </g>
 
 {% output %}

@@ -80,11 +80,15 @@ Compare attack and defense points side by side
 {% solution %}
 
 function computeX(d, i) {
-    return 0
+    return 120
 }
 
-function computeWidth(d, i) {
-    return i * 10 + 10
+function computeA(d, i) {
+    return d.Attack
+}
+
+function computeD(d, i) {
+    return d.Defense
 }
 
 function computeY(d, i) {
@@ -95,12 +99,17 @@ function computeColor(d, i) {
     return 'red'
 }
 
+function computeLabel(d, i) {
+    return d.Name
+}
 var viz = _.map(data, function(d, i){
             return {
                 x: computeX(d, i),
                 y: computeY(d, i),
-                width: computeWidth(d, i),
-                color: computeColor(d, i)
+                attack: computeA(d,i),
+		defense: computeD(d,i),
+                color: computeColor(d, i),
+		label: computeLabel(d, i)
             }
          })
 console.log(viz)
@@ -114,12 +123,22 @@ return result.join('\n')
 {% template %}
 <g transform="translate(120 ${d.y})">
     <rect
-         x="-${d.width}"
-         width="${d.width}"
+         x="-${d.attack}"
+         width="${d.attack}"
          height="20"
-         style="fill:${d.color};
+         style="fill:red;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
+	<rect
+         x=0
+         width="${d.defense}"
+         height="20"
+         style="fill:blue;
+                stroke-width:1;
+                stroke:rgb(0,0,0)" />
+	<text transform="translate(0 15)">
+        ${d.label}
+    </text>
 </g>
 
 {% output %}

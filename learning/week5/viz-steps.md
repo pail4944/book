@@ -176,7 +176,7 @@ data.countries = [{name: 'China', pop: 1393783836},
 {% lodash %}
 
 function computeX(d, i) {
-    return i + d.pop/5000000
+    return 0
 }
 
 function computeHeight(d, i){
@@ -191,7 +191,7 @@ data.viz = _.map(data.countries, function(d, i){
        return {
             x: computeX(d, i),
             height: computeHeight(d, i),
-	    width: computeWidth(d, i)
+			width: computeWidth(d, i)
         }    
     })
 

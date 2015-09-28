@@ -130,15 +130,12 @@ return result.join('\n')
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
 	<rect
-         x=0
+         x=120
          width="${d.defense}"
          height="20"
          style="fill:blue;
                 stroke-width:1;
                 stroke:rgb(0,0,0)" />
-	<text transform="translate(0 15)">
-        ${d.label}
-    </text>
 </g>
 
 {% output %}
