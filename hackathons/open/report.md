@@ -20,7 +20,7 @@ This report is prepared by
 
 {% title %}
 
-# What class has the highest ratio between of work to credit hours? (Parker Illig)
+# What class has the highest ratio of work per week to credit hours? (Parker Illig)
 
 {% solution %}
 
@@ -112,3 +112,30 @@ return result.join('\n')
 </g>
 
 {% endviz %}
+
+#What are the classes that have the most students barely pass with a C? (Andrew Krodinger)
+
+{% lodash %}
+var groups = _.groupBy(data, function(college){
+    return college['CourseTitle']
+})
+var courseEnroll = _.mapValues(groups, function(a){
+    return _.map(a, function(b){
+        return b['PCT']['C']
+    })
+})
+var enroll = _.mapValues(courseEnroll, function(enrolls){
+    return _.sum(enrolls)
+})
+result = _.slice(_.sortByOrder(_.pairs(enroll),function(d){return d[1]},'desc'), 0, 10)
+return result
+{% endlodash %}
+
+<table>
+{% for n in result %}
+    <tr>
+        <td>{{n[0]}}</td>
+        <td>{{n[1]}}</td>
+    </tr>
+{% endfor %}
+</table>
