@@ -20,36 +20,40 @@ What is the distribution of courses across colleges?
 var groups = _.groupBy(data, function(d){
     return d['CrsPBAColl']
 })
-
-// TODO: add real code to convert groups (which is an object) into an array like below
-// This array should have a lot more elements.
-var counts = [{"name": "AS","count": 3237},
-    {"name": "BU","count": 378},
-    {"name": "EB","count": 139},
-    {"name": "EN","count": 573}]
-
+var counts = _.sortBy(_.pairs(_.mapValues(groups, function(d){
+	return d.length
+	})), function(n){
+		return n[1]
+	}).reverse()
+	
 console.log(counts)
 
 // TODO: modify the code below to produce a nice vertical bar charts
 
 function computeX(d, i) {
-    return 0
+    return i*60
 }
 
 function computeHeight(d, i) {
-    return 20
+    return d[1]/10
 }
 
 function computeWidth(d, i) {
-    return 20 * i + 100
+    return 60
 }
 
 function computeY(d, i) {
-    return 20 * i
+    return 400 - d[1]/10
 }
 
 function computeColor(d, i) {
     return 'red'
+}
+function computeLabel1(d,i){
+	return d[0]
+}
+function computeLabel2(d,i){
+	return d[1]
 }
 
 var viz = _.map(counts, function(d, i){
@@ -58,8 +62,10 @@ var viz = _.map(counts, function(d, i){
                 y: computeY(d, i),
                 height: computeHeight(d, i),
                 width: computeWidth(d, i),
-                color: computeColor(d, i)
-            }
+                color: computeColor(d, i),
+				label1: computeLabel1(d,i),
+				label2: computeLabel2(d,i)
+			}
          })
 console.log(viz)
 
@@ -71,12 +77,20 @@ return result.join('\n')
 
 {% template %}
 
-<rect x="0"
-      y="${d.y}"
-      height="20"
-      width="${d.width}"
-      style="fill:${d.color};
-             stroke-width:3;
-             stroke:rgb(0,0,0)" />
+<g transform="translate(${d.x} ${d.y})">
+    <rect         
+         width="${d.width}"
+         height="${d.height}"
+         style="fill:${d.color};
+                stroke-width:3;
+                stroke:rgb(0,0,0)" />
+<text transform="translate(20 -5)">
+        ${d.label1}
+    </text>
+	<text transform="translate(20 -20)">
+        ${d.label2}
+    </text>
+</g>
+
 
 {% endviz %}
