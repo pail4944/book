@@ -4,7 +4,7 @@
 # Authors
 
 This report is prepared by
-* [Parker Illig](www.github.com/pail4944)
+* [Parker Illig](www.github.com/pillig)
 * [Andrew Krodinger](www.github.com/drewdinger)
 
 
@@ -30,7 +30,7 @@ var clean = _.filter(data, function(d){
 var result = _.groupBy(clean, function(d){
 	var dept = d.Subject
 	var num = d.Course
-	var combine = dept +  " " + num	
+	var combine = dept +  " " + num
 	return combine
 })
 var classes = _.mapValues(result, function(d){
@@ -97,7 +97,7 @@ return result.join('\n')
 {% template %}
 
 <g transform="translate(0 ${d.y})">
-    <rect         
+    <rect
          width="${d.width}"
          height="20"
          style="fill:${d.color};

@@ -7,7 +7,7 @@ bird strikes.
 
 This report is prepared by
 * [William Farmer](http://github.com/willzfarmer)
-* [Parker Illig](http://github.com/pail4944)
+* [Parker Illig](http://github.com/pillig)
 * [Kevin Gifford](http://github.com/kevinkgifford)
 * [John Raesly](http://github.com/jraesly)
 * [Andrew Krodinger](http://github.com/drewdinger)
@@ -35,4 +35,3 @@ This report is prepared by
 # Which plane model strikes the most birds?
 
 ![screenshot](./models.png)
-
